@@ -1,340 +1,187 @@
-/* EZLINK — interacciones y configuración */
-const EZLINK_CONFIG = {
-  // Escribe el número comercial en formato internacional, solo dígitos.
-  // Ejemplo de formato: 5917XXXXXXX. No incluyas +, espacios ni guiones.
-    whatsappNumbers: {
-        es: "59175522487",
-        "pt-BR": "5511999999999"
-    }  // Si el número queda vacío, los botones mostrarán un aviso en vez de abrir WhatsApp.
-};
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102b4e">
+  <meta name="description" content="EZLINK: soluciones de gestión de cobranzas por call center, seguimiento de cartera y atención profesional. Conoce nuestros servicios y oportunidades laborales.">
+  <title>EZLINK | Gestión de Cobranzas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+      <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="EZLINK, ir al inicio">
+        <!-- Sustituir este texto por el logotipo oficial cuando RR. HH. te lo facilite. -->
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>EZLINK</strong><small>GESTIÓN DE COBRANZAS</small></span>
+      </a>
+      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <a class="nav-link active" href="#inicio">Inicio</a>
+        <a class="nav-link" href="#servicios">Servicios</a>
+        <a class="nav-link" href="#nosotros">Nosotros</a>
+        <a class="nav-link" href="#talento">Trabaja con nosotros</a>
+        <a class="nav-link" href="#contacto">Contacto</a>
+        <div class="language-switch" aria-label="Seleccionar idioma">
+          <button type="button" class="language-option is-selected" data-lang="es" aria-pressed="true">ES</button>
+          <span aria-hidden="true">|</span>
+          <button type="button" class="language-option" data-lang="pt-BR" aria-pressed="false">PT-BR</button>
+        </div>
+        <a class="button button-small button-navy js-whatsapp" data-message="Hola, quisiera recibir información sobre los servicios de EZLINK." href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9a8.4 8.4 0 1 1 16-3.9Z"/><path d="M8.5 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2.1.4 0 .6l-.5.6c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1.2-.8 1.6-.5.4-1.2.6-2 .4-1-.2-2.2-.8-3.5-2-1.1-1-1.8-2.3-2-3.2-.2-.8 0-1.5.6-2.4Z"/></svg>
+          Solicitar información
+        </a>
+      </nav>
+    </div>
+  </header>
 
-document.addEventListener("DOMContentLoaded", () => {
-  const menuToggle = document.querySelector(".menu-toggle");
-  const mainNav = document.querySelector(".main-nav");
-  const navLinks = document.querySelectorAll(".nav-link");
-  const toast = document.querySelector(".toast");
-  let toastTimer;
+  <main id="contenido">
+<section class="hero" id="inicio">
+        <div class="hero-photo" role="img" aria-label="Equipo profesional trabajando en un centro de atención telefónica"></div>
+      <div class="hero-shade"></div>
+      <div class="hero-decoration" aria-hidden="true"></div>
+      <div class="container hero-content">
+        <p class="eyebrow eyebrow-light"><span></span> TU ALIADO EN LA GESTIÓN DE COBRANZAS</p>
+        <h1>Más que cobranzas,<br><em>generamos resultados.</em></h1>
+        <p class="hero-text">Ayudamos a las empresas a gestionar su cartera con procesos de cobranza telefónica profesionales, seguimiento organizado y una atención centrada en las personas.</p>
+        <div class="hero-actions">
 
-  document.querySelector("#current-year").textContent = new Date().getFullYear();
+          <a class="text-link text-link-light" href="#servicios">Conoce nuestros servicios <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="hero-note"><span class="note-line"></span> Gestión profesional. Comunicación humana. Seguimiento constante.</div>
+      </div>
+      <div class="hero-side-label" aria-hidden="true">EZLINK · GESTIÓN DE COBRANZAS</div>
+    </section>
 
-  function showToast(message) {
-    if (!toast) return;
-    toast.textContent = message;
-    toast.classList.add("show");
-    window.clearTimeout(toastTimer);
-    toastTimer = window.setTimeout(() => toast.classList.remove("show"), 3600);
-  }
+    <section class="trust-strip" aria-label="Principios de trabajo">
+      <div class="container trust-grid">
+        <div><span class="trust-icon">01</span><span><strong>Enfoque en resultados</strong><small>Procesos orientados a objetivos</small></span></div>
+        <div><span class="trust-icon">02</span><span><strong>Trato profesional</strong><small>Comunicación respetuosa</small></span></div>
+        <div><span class="trust-icon">03</span><span><strong>Seguimiento claro</strong><small>Gestión organizada de cartera</small></span></div>
+      </div>
+    </section>
 
-  function closeMenu() {
-    if (!menuToggle || !mainNav) return;
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.setAttribute("aria-label", "Abrir menú");
-    mainNav.classList.remove("is-open");
-    document.body.classList.remove("menu-open");
-  }
+    <section class="section services-section" id="servicios">
+      <div class="container">
+        <div class="section-heading section-heading-row reveal">
+          <div>
+            <p class="eyebrow">NUESTROS SERVICIOS</p>
+            <h2>Soluciones enfocadas<br>en las necesidades de tu negocio.</h2>
+          </div>
+          <p class="section-intro">Cada cartera es diferente. Trabajamos con procesos estructurados para acompañar a las empresas en sus objetivos de recuperación y atención al cliente.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 18v-4a9 9 0 0 1 18 0v4"/><rect x="5" y="17" width="5" height="8" rx="2"/><rect x="22" y="17" width="5" height="8" rx="2"/><path d="M24 25c-1 3-4 4-8 4"/></svg></div>
+            <span class="card-number">01 / CONTACTO</span>
+            <h3>Cobranza telefónica</h3>
+            <p>Contacto con clientes mediante una comunicación clara, profesional y orientada a facilitar acuerdos de pago.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="7" y="4" width="18" height="24" rx="2"/><path d="M12 11h8M12 16h8M12 21h5"/></svg></div>
+            <span class="card-number">02 / CONTROL</span>
+            <h3>Seguimiento de cartera</h3>
+            <p>Organización y seguimiento de gestiones para mantener una visión clara de cada etapa del proceso.</p>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 26 7v7c0 7-4.5 12-10 15C10.5 26 6 21 6 14V7Z"/><path d="m11 16 3.5 3.5L21 13"/></svg></div>
+            <span class="card-number">03 / EXPERIENCIA</span>
+            <h3>Atención profesional</h3>
+            <p>Un enfoque respetuoso en cada interacción, cuidando la experiencia del cliente y la comunicación de la marca.</p>
+          </article>
+          <article class="service-card service-card-featured reveal">
+            <div class="service-icon"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 25 12 17l5 4L28 8"/><path d="M20 8h8v8"/></svg></div>
+            <span class="card-number">04 / MEJORA</span>
+            <h3>Gestión orientada a objetivos</h3>
+            <p>Procesos que permiten dar continuidad a la gestión y trabajar de forma consistente hacia las metas acordadas.</p>
+          </article>
+        </div>
+        <p class="disclaimer">Los servicios y alcances específicos se definen según las necesidades y condiciones acordadas con cada cliente.</p>
+      </div>
+    </section>
 
-  if (menuToggle && mainNav) {
-    menuToggle.addEventListener("click", () => {
-      const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!isOpen));
-      menuToggle.setAttribute("aria-label", isOpen ? "Abrir menú" : "Cerrar menú");
-      mainNav.classList.toggle("is-open", !isOpen);
-      document.body.classList.toggle("menu-open", !isOpen);
-    });
+    <section class="about-section section" id="nosotros">
+      <div class="about-shape" aria-hidden="true"></div>
+      <div class="container about-grid">
+        <div class="about-image-wrap reveal">
+          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1100&q=85" alt="Profesionales colaborando en un entorno de oficina" loading="lazy">
+          <div class="image-caption"><span class="caption-dot"></span> Personas comprometidas. Procesos bien definidos.</div>
+        </div>
+        <div class="about-copy reveal">
+          <p class="eyebrow">SOBRE EZLINK</p>
+          <h2>Profesionalismo en cada contacto. Compromiso en cada gestión.</h2>
+          <p>En EZLINK nos enfocamos en la gestión de cobranzas a través de call center, combinando una comunicación profesional con procesos de seguimiento organizados.</p>
+          <p>Buscamos construir relaciones de trabajo basadas en la confianza, la responsabilidad y una comprensión clara de los objetivos de cada empresa.</p>
+          <div class="values-list">
+            <div><span>✓</span><span><strong>Comunicación humana</strong><small>Interacciones respetuosas y profesionales.</small></span></div>
+            <div><span>✓</span><span><strong>Gestión organizada</strong><small>Seguimiento y continuidad en cada proceso.</small></span></div>
+            <div><span>✓</span><span><strong>Trabajo en equipo</strong><small>Personas comprometidas con objetivos compartidos.</small></span></div>
+          </div>
+          <a class="button button-navy js-whatsapp" data-message="Hola, quisiera conversar con EZLINK sobre una posible colaboración empresarial." href="#" target="_blank" rel="noopener">Conversemos <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
 
-    navLinks.forEach(link => link.addEventListener("click", closeMenu));
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") closeMenu();
-    });
-    document.addEventListener("click", event => {
-      const isOpen = mainNav.classList.contains("is-open");
-      if (isOpen && !mainNav.contains(event.target) && !menuToggle.contains(event.target)) closeMenu();
-    });
-  }
+    <section class="talent-section section" id="talento">
+      <div class="container talent-grid">
+        <div class="talent-copy reveal">
+          <p class="eyebrow eyebrow-light">OPORTUNIDADES LABORALES</p>
+          <h2>Tu talento puede conectar con nuevas oportunidades.</h2>
+          <p>¿Te interesa desarrollarte en un entorno de call center? Nos interesa conocer personas responsables, con actitud de aprendizaje y habilidades de comunicación.</p>
+          <ul class="talent-points">
+            <li><span>↗</span> Interés en atención y comunicación con clientes</li>
+            <li><span>↗</span> Compromiso y responsabilidad</li>
+            <li><span>↗</span> Disposición para aprender y trabajar en equipo</li>
+          </ul>
+          <a class="button button-white js-whatsapp" data-message="Hola, estoy interesado/a en oportunidades laborales en EZLINK. ¿Podrían indicarme si hay convocatorias disponibles y cómo postular?" href="#" target="_blank" rel="noopener">Consultar oportunidades <span aria-hidden="true">↗</span></a>
+          <small class="talent-note">Las vacantes y requisitos dependen de las convocatorias vigentes. Consultar no garantiza una vacante.</small>
+        </div>
+        <div class="talent-visual reveal">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85" alt="Equipo de trabajo colaborando en una oficina" loading="lazy">
+          <div class="talent-stamp"><span>EZLINK</span><small>CRECEMOS<br>EN EQUIPO</small></div>
+        </div>
+      </div>
+    </section>
 
-  function buildWhatsAppUrl(number, message) {
-    const cleanNumber = number.replace(/\D/g, "");
-    if (!cleanNumber) return "";
-    return `https://wa.me/${cleanNumber}?text=${encodeURIComponent(message)}`;
-  }
+    <section class="contact-section section" id="contacto">
+      <div class="contact-orbit orbit-one" aria-hidden="true"></div><div class="contact-orbit orbit-two" aria-hidden="true"></div>
+      <div class="container contact-content reveal">
+        <p class="eyebrow eyebrow-light">¿HABLAMOS?</p>
+        <h2>Conectemos para dar<br>el siguiente paso.</h2>
+        <p>Si representas a una empresa interesada en nuestros servicios o quieres consultar por oportunidades laborales, estamos para orientarte.</p>
+        <div class="contact-actions">
+          <a class="button button-white js-whatsapp" data-message="Hola, represento a una empresa y quisiera recibir información sobre los servicios de EZLINK." href="#" target="_blank" rel="noopener">Soy una empresa <span aria-hidden="true">↗</span></a>
+          <a class="button button-outline-light js-whatsapp" data-message="Hola, quisiera consultar por oportunidades laborales en EZLINK." href="#" target="_blank" rel="noopener">Busco oportunidades <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  document.querySelectorAll(".js-whatsapp").forEach(link => {
-    const message = link.dataset.message || "Hola, quisiera recibir información sobre EZLINK.";
-    const url = buildWhatsAppUrl(EZLINK_CONFIG.whatsappNumbers.es, message);
+  <footer class="site-footer">
+    <div class="container footer-main">
+      <a class="brand brand-footer" href="#inicio" aria-label="EZLINK, volver al inicio">
+        <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><strong>EZLINK</strong><small>GESTIÓN DE COBRANZAS</small></span>
+      </a>
+      <p>Gestión profesional. Comunicación humana.</p>
+      <nav class="footer-nav" aria-label="Navegación del pie de página">
+        <a href="#servicios">Servicios</a><a href="#nosotros">Nosotros</a><a href="#talento">Trabaja con nosotros</a><a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="footer-bottom"><div class="container"><span>© <span id="current-year"></span> EZLINK. Todos los derechos reservados.</span><a href="#inicio">Volver arriba ↑</a></div></div>
+  </footer>
 
-    if (url) {
-      link.href = url;
-    } else {
-      link.href = "#contacto";
-      link.removeAttribute("target");
-      link.addEventListener("click", event => {
-        event.preventDefault();
-        showToast(document.documentElement.lang === "pt-BR"
-          ? "O WhatsApp comercial ainda não está configurado. Em breve você poderá entrar em contato por este canal."
-          : "El WhatsApp comercial todavía no está configurado. Pronto podrás contactarnos por este medio.");
-      });
-    }
-  });
-
-  // Animaciones discretas al entrar las secciones en pantalla.
-  const revealItems = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealItems.forEach(item => observer.observe(item));
-  } else {
-    revealItems.forEach(item => item.classList.add("is-visible"));
-  }
-
-
-  // Selector de idioma: español (ES) y portugués brasileño (PT-BR).
-  const languageButtons = document.querySelectorAll(".language-option");
-  const translations = {
-    "pt-BR": {
-      brandSubtitle: "GESTÃO DE COBRANÇAS",
-      copyright: "Todos os direitos reservados.",
-      talentStamp: "CRESCEMOS<br>EM EQUIPE",
-      nav: ["Início", "Serviços", "Sobre nós", "Trabalhe conosco", "Contato", "Solicitar informações"],
-      footerNav: ["Serviços", "Sobre nós", "Trabalhe conosco", "Contato"],
-      heroEyebrow: "SEU PARCEIRO NA GESTÃO DE COBRANÇAS",
-      heroTitle: 'Mais do que cobranças,<br><em>geramos resultados.</em>',
-      heroText: "Ajudamos empresas a gerenciar suas carteiras com processos profissionais de cobrança telefônica, acompanhamento organizado e atendimento centrado nas pessoas.",
-        heroLink: 'Conheça nossos serviços <span aria-hidden="true">↓</span>',
-      heroNote: "Gestão profissional. Comunicação humana. Acompanhamento constante.",
-      trust: [
-        ["Foco em resultados", "Processos orientados a objetivos"],
-        ["Atendimento profissional", "Comunicação respeitosa"],
-        ["Acompanhamento claro", "Gestão organizada da carteira"]
-      ],
-      servicesEyebrow: "NOSSOS SERVIÇOS",
-      servicesTitle: "Soluções focadas<br>nas necessidades do seu negócio.",
-      servicesIntro: "Cada carteira é diferente. Trabalhamos com processos estruturados para apoiar as empresas em seus objetivos de recuperação e atendimento ao cliente.",
-      cards: [
-        ["01 / CONTATO", "Cobrança telefônica", "Contato com clientes por meio de uma comunicação clara, profissional e voltada a facilitar acordos de pagamento."],
-        ["02 / CONTROLE", "Acompanhamento de carteira", "Organização e acompanhamento das gestões para manter uma visão clara de cada etapa do processo."],
-        ["03 / EXPERIÊNCIA", "Atendimento profissional", "Uma abordagem respeitosa em cada interação, cuidando da experiência do cliente e da comunicação da marca."],
-        ["04 / MELHORIA", "Gestão orientada a objetivos", "Processos que dão continuidade à gestão e permitem trabalhar de forma consistente em direção às metas acordadas."]
-      ],
-      disclaimer: "Os serviços e escopos específicos são definidos conforme as necessidades e condições acordadas com cada cliente.",
-      aboutEyebrow: "SOBRE A EZLINK",
-      imageCaption: "Pessoas comprometidas. Processos bem definidos.",
-      aboutTitle: "Profissionalismo em cada contato. Compromisso em cada gestão.",
-      aboutP1: "Na EZLINK, somos focados na gestão de cobranças por meio de call center, combinando comunicação profissional com processos organizados de acompanhamento.",
-      aboutP2: "Buscamos construir relações de trabalho baseadas na confiança, responsabilidade e compreensão clara dos objetivos de cada empresa.",
-      values: [
-        ["Comunicação humana", "Interações respeitosas e profissionais."],
-        ["Gestão organizada", "Acompanhamento e continuidade em cada processo."],
-        ["Trabalho em equipe", "Pessoas comprometidas com objetivos compartilhados."]
-      ],
-      aboutButton: 'Vamos conversar <span aria-hidden="true">↗</span>',
-      talentEyebrow: "OPORTUNIDADES DE TRABALHO",
-      talentTitle: "Seu talento pode se conectar a novas oportunidades.",
-      talentText: "Tem interesse em se desenvolver em um ambiente de call center? Queremos conhecer pessoas responsáveis, com vontade de aprender e habilidades de comunicação.",
-      talentPoints: [
-        "Interesse em atendimento e comunicação com clientes",
-        "Compromisso e responsabilidade",
-        "Disposição para aprender e trabalhar em equipe"
-      ],
-      talentButton: 'Consultar oportunidades <span aria-hidden="true">↗</span>',
-      talentNote: "As vagas e os requisitos dependem dos processos seletivos em andamento. Consultar não garante uma vaga.",
-      contactEyebrow: "VAMOS CONVERSAR?",
-      contactTitle: "Vamos nos conectar para<br>dar o próximo passo.",
-      contactText: "Se você representa uma empresa interessada em nossos serviços ou deseja consultar oportunidades de trabalho, estamos à disposição para orientar você.",
-      companyButton: 'Sou uma empresa <span aria-hidden="true">↗</span>',
-      jobsButton: 'Busco oportunidades <span aria-hidden="true">↗</span>',
-      footerTagline: "Gestão profissional. Comunicação humana.",
-      footerBack: "Voltar ao topo ↑",
-      toast: "O WhatsApp comercial ainda não está configurado. Em breve você poderá entrar em contato por este canal.",
-      messages: {
-        general: "Olá, gostaria de receber informações sobre a EZLINK.",
-        services: "Olá, gostaria de receber informações sobre os serviços da EZLINK.",
-        company: "Olá, represento uma empresa e gostaria de receber informações sobre os serviços da EZLINK.",
-        jobs: "Olá, tenho interesse em oportunidades de trabalho na EZLINK. Poderiam informar se há vagas abertas e como me candidatar?",
-        phone: "Olá, gostaria de receber informações sobre o serviço de cobrança telefônica da EZLINK.",
-        portfolio: "Olá, gostaria de receber informações sobre acompanhamento e gestão de carteira com a EZLINK.",
-        customer: "Olá, gostaria de conhecer a abordagem de atendimento ao cliente da EZLINK.",
-        goals: "Olá, gostaria de conversar sobre os objetivos de gestão de cobranças da minha empresa.",
-        partnership: "Olá, gostaria de conversar com a EZLINK sobre uma possível parceria empresarial."
-      }
-    },
-    es: null
-  };
-
-  const spanishMessages = {
-    general: "Hola, quisiera recibir información sobre EZLINK.",
-    services: "Hola, quisiera recibir información sobre los servicios de EZLINK.",
-    company: "Hola, represento a una empresa y quisiera recibir información sobre los servicios de EZLINK.",
-    jobs: "Hola, estoy interesado/a en oportunidades laborales en EZLINK. ¿Podrían indicarme si hay convocatorias disponibles y cómo postular?",
-    phone: "Hola, quisiera información sobre el servicio de cobranza telefónica de EZLINK.",
-    portfolio: "Hola, quisiera información sobre seguimiento y gestión de cartera con EZLINK.",
-    customer: "Hola, quisiera conocer el enfoque de atención al cliente de EZLINK.",
-    goals: "Hola, quisiera conversar sobre los objetivos de gestión de cobranzas de mi empresa.",
-    partnership: "Hola, quisiera conversar con EZLINK sobre una posible colaboración empresarial."
-  };
-
-  const originalMessages = new Map();
-  document.querySelectorAll(".js-whatsapp").forEach(link => {
-    originalMessages.set(link, link.dataset.message || spanishMessages.general);
-  });
-
-  function setText(selector, value) {
-    const element = document.querySelector(selector);
-    if (element) element.innerHTML = value;
-  }
-
-  function setTexts(selector, values) {
-    document.querySelectorAll(selector).forEach((element, index) => {
-      if (values[index] !== undefined) element.innerHTML = values[index];
-    });
-  }
-
-  function applyLanguage(language) {
-    const pt = language === "pt-BR";
-    document.documentElement.lang = pt ? "pt-BR" : "es";
-    languageButtons.forEach(button => {
-      const selected = button.dataset.lang === language;
-      button.classList.toggle("is-selected", selected);
-      button.setAttribute("aria-pressed", String(selected));
-    });
-
-    const nav = pt
-      ? translations["pt-BR"].nav
-      : ["Inicio", "Servicios", "Nosotros", "Trabaja con nosotros", "Contacto", "Solicitar información"];
-    setTexts(".nav-link", nav.slice(0, 5));
-    const navCta = document.querySelector(".main-nav .js-whatsapp");
-    if (navCta) navCta.lastChild.textContent = pt ? " Solicitar informações" : " Solicitar información";
-
-    if (pt) {
-      const t = translations["pt-BR"];
-      setTexts(".footer-nav a", t.footerNav);
-      setText(".talent-stamp small", t.talentStamp);
-      setTexts(".brand-copy small", [t.brandSubtitle,t.brandSubtitle]);
-      setText(".footer-bottom .container > span",`© ${new Date().getFullYear()} EZLINK. ${t.copyright}`);
-      setText(".hero .eyebrow", `<span></span> ${t.heroEyebrow}`);
-      setText(".hero h1", t.heroTitle);
-      setText(".hero-text", t.heroText);
-      setText(".hero-actions .text-link", t.heroLink);
-      setText(".hero-note", `<span class="note-line"></span> ${t.heroNote}`);
-      setTexts(".trust-grid > div", t.trust.map(item => `<span class="trust-icon">${item[0].slice(0,2) === "En" ? "01" : ""}</span>`)); // Replaced below to preserve the numbered badges.
-      document.querySelectorAll(".trust-grid > div").forEach((el, i) => {
-        const badge = el.querySelector(".trust-icon");
-        const originalNumber = ["01", "02", "03"][i];
-        el.innerHTML = `<span class="trust-icon">${originalNumber}</span><span><strong>${t.trust[i][0]}</strong><small>${t.trust[i][1]}</small></span>`;
-      });
-      setText(".services-section .eyebrow", t.servicesEyebrow);
-      setText(".section-heading h2", t.servicesTitle);
-      setText(".section-intro", t.servicesIntro);
-      document.querySelectorAll(".service-card").forEach((card, i) => {
-        const c = t.cards[i];
-        card.querySelector(".card-number").textContent = c[0];
-        card.querySelector("h3").textContent = c[1];
-        card.querySelector("p").textContent = c[2];
-
-      });
-      setText(".disclaimer", t.disclaimer);
-      setText(".about-copy .eyebrow", t.aboutEyebrow);
-      setText(".image-caption", `<span class="caption-dot"></span> ${t.imageCaption}`);
-      setText(".about-copy h2", t.aboutTitle);
-      const aboutParagraphs = document.querySelectorAll(".about-copy > p:not(.eyebrow)");
-      if (aboutParagraphs[0]) aboutParagraphs[0].textContent = t.aboutP1;
-      if (aboutParagraphs[1]) aboutParagraphs[1].textContent = t.aboutP2;
-      document.querySelectorAll(".values-list > div").forEach((el, i) => {
-        el.innerHTML = `<span>✓</span><span><strong>${t.values[i][0]}</strong><small>${t.values[i][1]}</small></span>`;
-      });
-      setText(".about-copy .button", t.aboutButton);
-      setText(".talent-copy .eyebrow", t.talentEyebrow);
-      setText(".talent-copy h2", t.talentTitle);
-      setText(".talent-copy > p:not(.eyebrow)", t.talentText);
-      setTexts(".talent-points li", t.talentPoints.map(text => `<span>↗</span> ${text}`));
-      setText(".talent-copy .button", t.talentButton);
-      setText(".talent-note", t.talentNote);
-      setText(".contact-content .eyebrow", t.contactEyebrow);
-      setText(".contact-content h2", t.contactTitle);
-      setText(".contact-content > p:not(.eyebrow)", t.contactText);
-      setText(".contact-actions .button:first-child", t.companyButton);
-      setText(".contact-actions .button:last-child", t.jobsButton);
-      setText(".footer-main > p", t.footerTagline);
-      setText(".footer-bottom a", t.footerBack);
-      document.querySelector(".floating-whatsapp")?.setAttribute("aria-label", "Entrar em contato com a EZLINK pelo WhatsApp");
-    } else {
-      // Restaurar os textos originais em espanhol de forma consistente.
-      location.reload();
-      return;
-    }
-
-    document.querySelectorAll(".js-whatsapp").forEach(link => {
-      const key = link.dataset.messageKey;
-      let message = link.dataset.message || spanishMessages.general;
-      if (pt) {
-        const map = translations["pt-BR"].messages;
-        if (link.closest(".talent-section") || link.dataset.message?.includes("oportunidades laborales")) message = map.jobs;
-        else if (link.closest(".contact-actions") && link.classList.contains("js-whatsapp")) {
-          message = link === document.querySelector(".contact-actions .button:first-child") ? map.company : map.jobs;
-        } else if (link.dataset.message?.includes("cobranza telefónica")) message = map.phone;
-        else if (link.dataset.message?.includes("seguimiento y gestión")) message = map.portfolio;
-        else if (link.dataset.message?.includes("atención al cliente")) message = map.customer;
-        else if (link.dataset.message?.includes("objetivos de gestión")) message = map.goals;
-        else if (link.dataset.message?.includes("posible colaboración")) message = map.partnership;
-        else if (link.dataset.message?.includes("servicios de gestión de cobranzas")) message = map.services;
-        else if (link.dataset.message?.includes("servicios de EZLINK") || link === navCta) message = map.services;
-        else message = map.general;
-        link.dataset.message = message;
-      }
-      const url = buildWhatsAppUrl(EZLINK_CONFIG.whatsappNumbers[language], message);
-      if (url) {
-        link.href = url;
-      } else {
-        link.href = "#contacto";
-      }
-    });
-  }
-
-  // Guarda el idioma seleccionado durante la navegación actual.
-  languageButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const language = button.dataset.lang;
-      if (language === "es") {
-        location.reload();
-      } else {
-        applyLanguage(language);
-      }
-    });
-  });
-
-  // Marca la sección visible en la navegación.
-// Detectar la sección activa del menú
-const sections = document.querySelectorAll("main section[id]");
-
-function updateActiveNav() {
-    const scrollPosition = window.scrollY + 150;
-
-    let currentSection = "inicio";
-
-    sections.forEach(section => {
-        if (scrollPosition >= section.offsetTop) {
-            currentSection = section.id;
-        }
-    });
-
-    navLinks.forEach(link => {
-        const isActive =
-            link.getAttribute("href") === `#${currentSection}`;
-
-        link.classList.toggle("active", isActive);
-    });
-}
-
-// Actualizar al desplazarse
-window.addEventListener("scroll", updateActiveNav, {
-    passive: true
-});
-
-// Actualizar al cargar la página
-updateActiveNav();
-});
+  <a class="floating-whatsapp js-whatsapp" data-message="Hola, quisiera recibir información sobre EZLINK." href="#" target="_blank" rel="noopener" aria-label="Contactar a EZLINK por WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 11.7a8.4 8.4 0 0 1-12.4 7.4L3 20.5l1.5-4.9a8.4 8.4 0 1 1 16-3.9Z"/><path d="M8.5 8.1c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .5.4l.7 1.6c.1.2.1.4 0 .6l-.5.6c-.2.2-.2.4-.1.6.5.9 1.2 1.6 2.1 2.1.2.1.4.1.6-.1l.7-.8c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.5 0 .3-.2 1.2-.8 1.6-.5.4-1.2.6-2 .4-1-.2-2.2-.8-3.5-2-1.1-1-1.8-2.3-2-3.2-.2-.8 0-1.5.6-2.4Z"/></svg>
+  </a>
+  <div class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
