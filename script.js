@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const languageButtons = document.querySelectorAll(".language-option");
   const translations = {
     "pt-BR": {
+      herosidelabel: "EZLINK · GESTÃO DE COBRANÇAS",
       brandSubtitle: "GESTÃO DE COBRANÇAS",
       copyright: "Todos os direitos reservados.",
       talentStamp: "CRESCEMOS<br>EM EQUIPE",
@@ -212,6 +213,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (pt) {
       const t = translations["pt-BR"];
+            
+      setText(".hero-side-label", t.herosidelabel);
       setTexts(".footer-nav a", t.footerNav);
       setText(".talent-stamp small", t.talentStamp);
       setTexts(".brand-copy small", [t.brandSubtitle,t.brandSubtitle]);
