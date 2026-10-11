@@ -105,8 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       heroEyebrow: "SEU PARCEIRO NA GESTÃO DE COBRANÇAS",
       heroTitle: 'Mais do que cobranças,<br><em>geramos resultados.</em>',
       heroText: "Ajudamos empresas a gerenciar suas carteiras com processos profissionais de cobrança telefônica, acompanhamento organizado e atendimento centrado nas pessoas.",
-      heroButton: '<span class="whatsapp-mini">◉</span> Junte-se à nossa equipe <span aria-hidden="true">↗</span>',
-      heroLink: 'Conheça nossos serviços <span aria-hidden="true">↓</span>',
+        heroLink: 'Conheça nossos serviços <span aria-hidden="true">↓</span>',
       heroNote: "Gestão profissional. Comunicação humana. Acompanhamento constante.",
       trust: [
         ["Foco em resultados", "Processos orientados a objetivos"],
@@ -220,7 +219,6 @@ document.addEventListener("DOMContentLoaded", () => {
       setText(".hero .eyebrow", `<span></span> ${t.heroEyebrow}`);
       setText(".hero h1", t.heroTitle);
       setText(".hero-text", t.heroText);
-      setText(".hero-actions .button", t.heroButton);
       setText(".hero-actions .text-link", t.heroLink);
       setText(".hero-note", `<span class="note-line"></span> ${t.heroNote}`);
       setTexts(".trust-grid > div", t.trust.map(item => `<span class="trust-icon">${item[0].slice(0,2) === "En" ? "01" : ""}</span>`)); // Replaced below to preserve the numbered badges.
